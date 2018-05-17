@@ -1,5 +1,5 @@
 import React from 'react';
-import PetHelper from '../PetHelper/PetHelper';
+import PetHelper from '../PetCreator/PetCreator';
 import Pet from '../Pet/Pet';
 
 class Audino extends React.Component {

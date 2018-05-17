@@ -1,6 +1,6 @@
 import React from 'react';
 
-let features = {
+let traits = {
   name: 'Nonam',
   species: 'Fox'
 };
@@ -16,16 +16,16 @@ class PetHelper extends React.Component {
 
   handleName(event) {
     const newName = event.target.value;
-    features.name = newName;
+    traits.name = newName;
   }
 
   handleSpecies(event) {
     const newSpecies = event.target.value;
-    features.species = newSpecies;
+    traits.species = newSpecies;
   }
 
   handleSubmit(event) {
-    this.props.onSubmit(features.name, features.species);
+    this.props.onSubmit(traits.name, traits.species);
     event.preventDefault();
   }
 
