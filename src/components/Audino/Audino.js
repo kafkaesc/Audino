@@ -1,8 +1,12 @@
 import React from 'react';
 import PetCreator from '../PetCreator/PetCreator';
+import PetHandler from '../PetHandler/PetHandler';
 import Pet from '../Pet/Pet';
 
+const limits = { happiness: 10, hunger: 10 };
+
 class Audino extends React.Component {
+
   constructor(props) {
     super(props);
 
@@ -10,6 +14,8 @@ class Audino extends React.Component {
     this.state = {petCreated: false};
 
     this.createPet = this.createPet.bind(this);
+    this.adjustHappiness = this.adjustHappiness.bind(this);
+    this.adjustHunger = this.adjustHunger.bind(this);
   }
 
   createPet(givenName, givenSpecies) {
@@ -22,16 +28,42 @@ class Audino extends React.Component {
     });
   }
 
+  adjustHappiness(n) {
+    const newHappiness = this.state.happiness + n;
+    if(newHappiness > 0 && newHappiness <= limits.happiness) {
+      this.setState({
+        happiness: newHappiness
+      });
+    }
+  }
+
+  adjustHunger(n) {
+    const newHunger = this.state.hunger + n;
+    if(newHunger > 0 && newHunger <= limits.hunger) {
+      this.setState({
+        hunger: newHunger
+      });
+    }
+  }
+
   render() {
     const petDisplay = this.state.petCreated;
     const appContent = petDisplay
-      ? (<Pet
-          name={this.state.name}
-          species={this.state.species}
-          happiness={this.state.happiness}
-          hunger={this.state.hunger} />)
-      : (<PetCreator
-        onSubmit={this.createPet} />);
+      ? (
+        <div>
+          <Pet
+            name={this.state.name}
+            species={this.state.species}
+            happiness={this.state.happiness}
+            hunger={this.state.hunger} />
+          <PetHandler
+            handleHappiness={this.adjustHappiness}
+            handleHunger={this.adjustHunger} />
+        </div>)
+      : (
+        <PetCreator
+          onSubmit={this.createPet} />);
+
     return (
       <div>
         {appContent}
