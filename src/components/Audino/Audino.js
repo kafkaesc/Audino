@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PetHelper from '../PetHelper/PetHelper';
 import Pet from '../Pet/Pet';
 
@@ -7,21 +6,15 @@ class Audino extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {name: 'default', species: 'Fox', happiness: 5, hunger: 5};
+    this.state = {name: 'Nonam', species: 'Ditto', happiness: 5, hunger: 5};
 
-    this.setName = this.setName.bind(this);
-    this.changeSpecies = this.changeSpecies.bind(this);
+    this.createPet = this.createPet.bind(this);
   }
 
-  setName(newName) {
+  createPet(givenName, givenSpecies) {
     this.setState({
-      name: newName
-    });
-  }
-
-  changeSpecies(newSpecies) {
-    this.setState({
-      species: newSpecies
+      name: givenName,
+      species: givenSpecies
     });
   }
 
@@ -29,8 +22,7 @@ class Audino extends React.Component {
     return (
       <div>
           <PetHelper
-            onNamed={this.setName}
-            onSpeciation={this.changeSpecies} />
+            onSubmit={this.createPet} />
           <Pet
             name={this.state.name}
             species={this.state.species}
