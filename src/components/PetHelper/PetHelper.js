@@ -17,14 +17,11 @@ class PetHelper extends React.Component {
   handleName(event) {
     const newName = event.target.value;
     features.name = newName;
-    console.log('new name');
   }
 
   handleSpecies(event) {
     const newSpecies = event.target.value;
     features.species = newSpecies;
-    console.log('new species');
-    console.log(features);
   }
 
   handleSubmit(event) {
