@@ -1,5 +1,5 @@
 import React from 'react';
-import PetHelper from '../PetCreator/PetCreator';
+import PetCreator from '../PetCreator/PetCreator';
 import Pet from '../Pet/Pet';
 
 class Audino extends React.Component {
@@ -21,7 +21,7 @@ class Audino extends React.Component {
   render() {
     return (
       <div>
-          <PetHelper
+          <PetCreator
             onSubmit={this.createPet} />
           <Pet
             name={this.state.name}

@@ -5,7 +5,7 @@ let traits = {
   species: 'Fox'
 };
 
-class PetHelper extends React.Component {
+class PetCreator extends React.Component {
   constructor(props) {
     super(props);
 
@@ -60,4 +60,4 @@ class PetHelper extends React.Component {
   }
 }
 
-export default PetHelper;
+export default PetCreator;
