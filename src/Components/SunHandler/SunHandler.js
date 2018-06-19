@@ -11,7 +11,7 @@ class SunHandler extends React.Component {
         <p>
           <button type='button'>Game</button>
           <button type='button'>Controls</button>
-            <button type='button'>TBD</button>
+          <button type='button'>TBD</button>
         </p>
       </div>
     );

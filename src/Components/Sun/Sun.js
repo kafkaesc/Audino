@@ -1,5 +1,6 @@
 import React from 'react';
 import SunHandler from '../SunHandler/SunHandler';
+import Debugger from '../Debugger/Debugger';
 
 let timer;
 
@@ -104,7 +105,6 @@ class Sun extends React.Component {
     else
       ageString += `${this.state.age[0]} seconds`;
 
-    console.log(ageString);
     return ageString;
   }
 
@@ -128,8 +128,8 @@ class Sun extends React.Component {
           {this.state.name} is currently a {this.state.phase},
           and {this.printNextPhase()}
         </p>
-        <SunHandler
-          addSec={this.addSec}/>
+        <SunHandler />
+        <Debugger addSec={this.addSec}/>
       </div>
     );
   }
