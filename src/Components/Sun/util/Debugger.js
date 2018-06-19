@@ -1,4 +1,5 @@
 import React from 'react';
+import Timer from '../util/Timer';
 
 /*
  * Debugger for the timer for SunSimulator 2018. Lets you

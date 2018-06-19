@@ -1,6 +1,6 @@
 import React from 'react';
 import SunHandler from '../SunHandler/SunHandler';
-import Debugger from '../Debugger/Debugger';
+import Debugger from './util/Debugger';
 
 let timer;
 
@@ -63,6 +63,7 @@ class Sun extends React.Component {
       newAge[5] = 0;
       newAge[6]++;
     }
+
     this.setState({age: newAge});
   }
 
