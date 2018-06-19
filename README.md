@@ -1,5 +1,5 @@
-# Audino
+# Sun Simulator 2018
 
-What is this app? I don't even know yet. The plan is to slowly evolve it
-into some sort of digital pet that you will feed and care for. Right now
-it is incredibly bare-bones.
+Sun Simulator 2018 is a revolutionary new game where you are in charge
+of raising a sun. Guide your sun through the phases of life in the world's
+very first real-time solar simulator video game.

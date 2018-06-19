@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Audino from './components/Audino/Audino';
+import SunSimulator from '../SunSimulator/SunSimulator';
 
 class App extends Component {
   render() {
@@ -8,9 +8,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src="logo.png" className="Audino-logo" alt="logo" />
-          <h1 className="App-title">Audino</h1>
+          <h1 className="App-title">SunSimulator 2018</h1>
         </header>
-        <Audino />
+        <SunSimulator />
       </div>
     );
   }
