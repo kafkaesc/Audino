@@ -24,8 +24,6 @@ class Sun extends React.Component {
     }
   }
 
-  // bamboolze, literally no code is written to move
-  // to then next cycle of stellar existence yet
   printNextPhase() {
     switch(this.state.phase) {
       case 'Molecular Cloud':
