@@ -1,5 +1,5 @@
 import React from 'react';
-import SunHandler from '../SunHandler/SunHandler';
+import SunHandler from './SunHandler/SunHandler';
 import Timer from './Timer/Timer';
 
 class Sun extends React.Component {
