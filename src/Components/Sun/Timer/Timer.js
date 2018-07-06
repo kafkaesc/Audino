@@ -38,18 +38,48 @@ class Timer extends React.Component {
     let y = this.state.years;
     let s = this.state.seconds + 1;
 
-    if(s === 31536000)
+    // celebrate another birthday for our son
+    if(s === 31536000) {
+      y = y + 1;
+      // check if this birthday indicates a new age
+      this.phaseCheck(y);
+      // increment time
       this.setState({
-        time: this.secondsToTime(s),
-        years: y + 1,
+        time: {'day': 0, 'hour': 0, 'min': 0, 'sec': 0},
+        years: y,
         seconds: 0
       });
+    }
     else
       this.setState({
         time: this.secondsToTime(s),
         years: y,
         seconds: s
       });
+  }
+
+  phaseCheck(year) {
+    switch(year) {
+      case 4:
+      case 5:
+      case 6:
+      case 7: this.props.nextPhase(); break;
+      default: break;
+    }
+    /*
+    if(year === 4) {
+      this.props.nextPhase();
+    }
+    else if(year === 5) {
+      this.props.nextPhase();
+    }
+    else if(year === 6) {
+      this.props.nextPhase();
+    }
+    else if(year === 7) {
+      this.props.nextPhase();
+    }
+    */
   }
 
   yearTest() {
@@ -60,7 +90,8 @@ class Timer extends React.Component {
   render() {
     return(
       <div>
-        Your star has been alive for {this.state.years} years, {this.state.time.day} days, {this.state.time.hour} hours, {this.state.time.min} minutes, {this.state.time.sec} seconds
+        <button onClick={this.yearTest}>+~yr</button>
+        <p>Your star has been alive for {this.state.years} years, {this.state.time.day} days, {this.state.time.hour} hours, {this.state.time.min} minutes, {this.state.time.sec} seconds</p>
       </div>
      );
   }

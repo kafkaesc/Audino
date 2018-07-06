@@ -7,7 +7,7 @@ class SunSimulator extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {name: 'Nonam', phase: 'Nebula', age: 0};
+    this.state = {name: 'Nonam', phase: 'Molecular Cloud', age: 0};
     this.state = {sunCreated: false};
 
     this.createSun = this.createSun.bind(this);

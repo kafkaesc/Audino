@@ -10,6 +10,19 @@ class Sun extends React.Component {
       name: this.props.name,
       phase: this.props.phase,
     };
+
+    this.evolve = this.evolve.bind(this);
+  }
+
+  evolve() {
+    if(this.state.phase === 'Molecular Cloud')
+      this.setState({ phase: 'Yellow Star' });
+    else if(this.state.phase === 'Yellow Star')
+      this.setState({ phase: 'Red Giant' });
+    else if(this.state.phase === 'Red Giant')
+      this.setState({ phase: 'Planetary Nebula' });
+    else if(this.state.phase === 'Planetary Nebula')
+      this.setState({ phase: 'White Dwarf' });
   }
 
   // bamboolze, literally no code is written to move
@@ -27,7 +40,7 @@ class Sun extends React.Component {
       <div>
         <h2>{this.state.name}</h2>
         <p>{this.state.name} has been around for </p>
-        <Timer />
+        <Timer nextPhase={this.evolve} />
         <p>
           {this.state.name} is currently a {this.state.phase},
           and {this.printNextPhase()}
