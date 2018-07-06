@@ -15,24 +15,32 @@ class Sun extends React.Component {
   }
 
   evolve() {
-    if(this.state.phase === 'Molecular Cloud')
-      this.setState({ phase: 'Yellow Star' });
-    else if(this.state.phase === 'Yellow Star')
-      this.setState({ phase: 'Red Giant' });
-    else if(this.state.phase === 'Red Giant')
-      this.setState({ phase: 'Planetary Nebula' });
-    else if(this.state.phase === 'Planetary Nebula')
-      this.setState({ phase: 'White Dwarf' });
+    switch(this.state.phase) {
+      case 'Molecular Cloud': this.setState({ phase: 'Yellow Star' }); break;
+      case 'Yellow Star': this.setState({ phase: 'Red Giant' }); break;
+      case 'Red Giant': this.setState({ phase: 'Planetary Nebula' }); break;
+      case 'Planetary Nebula': this.setState({ phase: 'White Dwarf' }); break;
+      default: break;
+    }
   }
 
   // bamboolze, literally no code is written to move
   // to then next cycle of stellar existence yet
   printNextPhase() {
-    return(
-      <span>
-        should become a yellow star in about 1,000,000 years.
-      </span>
-    );
+    switch(this.state.phase) {
+      case 'Molecular Cloud':
+        return <span>should become a yellow star in about 1,000,000 years.</span>;
+      case 'Yellow Star':
+        return <span>should become a red giant once it runs out of Hydrogen.</span>;
+      case 'Red Giant':
+        return <span>should become a planetary nebula after it burns through its remaining gas</span>;
+      case 'Planetary Nebula':
+        return <span>will soon become a white dwarf after expelling a layer of ionized gas</span>;
+      case 'White Dwarf':
+        return <span>will lives out its remaining years happily</span>;
+      default: break;
+    }
+    return '';
   }
 
   render() {
@@ -42,8 +50,7 @@ class Sun extends React.Component {
         <p>{this.state.name} has been around for </p>
         <Timer nextPhase={this.evolve} />
         <p>
-          {this.state.name} is currently a {this.state.phase},
-          and {this.printNextPhase()}
+          {this.state.name} is currently a {this.state.phase}, and {this.printNextPhase()}
         </p>
         <SunHandler />
       </div>

@@ -14,9 +14,7 @@ class SunSimulator extends React.Component {
   }
 
   createSun(n, p) {
-    this.setState({
-      name: n, phase: p, sunCreated: true
-    });
+    this.setState({ name: n, phase: p, sunCreated: true });
   }
 
   render() {
