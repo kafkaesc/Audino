@@ -106,7 +106,7 @@ class Timer extends React.Component {
   /*
    * Child Mode a.k.a Warp10 is a game mode designed for users
    * too impatient for the intended playstyle of SunSimulator 2018.
-   * In this mode the game will add several users to the counter
+   * In this mode the game will add several years to the counter
    * every 250 ms, resulting in a gaming experience that is rougly
    * 1Tx normal speed.
    */
