@@ -26,7 +26,7 @@ class Sun extends React.Component {
   printNextPhase() {
     switch(this.state.phase) {
       case 'Molecular Cloud':
-        return <span>should become a yellow star in about 1,000,000 years.</span>;
+        return <span>should become a yellow star in about 2,000,000,000 years.</span>;
       case 'Yellow Star':
         return <span>should become a red giant once it runs out of Hydrogen.</span>;
       case 'Red Giant':
@@ -49,7 +49,6 @@ class Sun extends React.Component {
         <p>
           {this.props.name} is currently a {this.state.phase}, and {this.printNextPhase()}
         </p>
-        <p>Difficulty is {this.props.difficulty}</p>
         <SunHandler />
       </div>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import Rand from './Rand.js';
 
 class Timer extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class Timer extends React.Component {
     };
     this.start = this.start.bind(this);
     this.incrementTime = this.incrementTime.bind(this);
+    this.incrementWarp10 = this.incrementWarp10.bind(this);
     this.yearTest = this.yearTest.bind(this);
   }
 
@@ -17,15 +19,21 @@ class Timer extends React.Component {
     this.start();
   }
 
+  // start the timer and set its speed according
+  // to the difficulty selected by the user
   start() {
-    console.log(this.props.diff_speed);
     switch(this.props.diff_speed) {
       case '_normal': setInterval(this.incrementTime, 1000); break;
       case '_easy': setInterval(this.incrementTime, 500); break;
       case '_vEasy': setInterval(this.incrementTime, 250); break;
+      case '_warp10': setInterval(this.incrementWarp10, 250); break;
+      default: break;
     }
   }
 
+  // convert secs to
+  // X days, X2 hours, X3 minutes, X4 secs
+  // format
   secondsToTime(secs) {
     let d = Math.floor(secs / 86400);
     secs -= d * 86400;
@@ -72,7 +80,14 @@ class Timer extends React.Component {
     }
   }
 
+  // this switch statement will place breakpaints
+  // at the times where the sun will transition into
+  // its next phase
   phaseCheck(year) {
+    /* the current breakpoints are set for debugging
+     * and certainly do not reflect the actual timescale
+     * of the lifetime of a star
+     */
     switch(year) {
       case 4:
       case 5:
@@ -82,9 +97,39 @@ class Timer extends React.Component {
     }
   }
 
+  // test if the sec counter has reached a year
   yearTest() {
     let s = this.state.seconds + 31535990;
     this.setState({seconds: s});
+  }
+
+  /*
+   * Child Mode a.k.a Warp10 is a game mode designed for users
+   * too impatient for the intended playstyle of SunSimulator 2018.
+   * In this mode the game will add several users to the counter
+   * every 250 ms, resulting in a gaming experience that is rougly
+   * 1Tx normal speed.
+   */
+  incrementWarp10() {
+    let s = Rand.sec();
+    let m = Rand.min();
+    let h = Rand.hr();
+    let d = Rand.day();
+    let y = this.state.years + this.randomYearIncrement();
+
+    this.setState({
+      time: {'day': d, 'hour': h, 'min': m, 'sec': s},
+      years: y
+    });
+
+    // TO-DO, since Warp10 will be skipping years if-logic will
+    // be necessary instead of the switch statement utilized for
+    // the traditional SunSimulator 2018 experience.
+  }
+
+  // warp10 will add 8-12 years roughly every 250 ms
+  randomYearIncrement() {
+    return Math.floor(Math.random() * 8) + 4;
   }
 
   render() {
