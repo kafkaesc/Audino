@@ -18,7 +18,12 @@ class Timer extends React.Component {
   }
 
   start() {
-    setInterval(this.incrementTime, 1000);
+    console.log(this.props.diff_speed);
+    switch(this.props.diff_speed) {
+      case '_normal': setInterval(this.incrementTime, 1000); break;
+      case '_easy': setInterval(this.incrementTime, 500); break;
+      case '_vEasy': setInterval(this.incrementTime, 250); break;
+    }
   }
 
   secondsToTime(secs) {

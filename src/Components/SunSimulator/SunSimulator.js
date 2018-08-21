@@ -13,8 +13,8 @@ class SunSimulator extends React.Component {
     this.createSun = this.createSun.bind(this);
   }
 
-  createSun(n, p) {
-    this.setState({ name: n, phase: p, sunCreated: true });
+  createSun(n, p, d) {
+    this.setState({ name: n, phase: p, difficulty: d, sunCreated: true });
   }
 
   render() {
@@ -27,6 +27,7 @@ class SunSimulator extends React.Component {
             name={this.state.name}
             age={this.state.age}
             phase={this.state.phase}
+            difficulty={this.state.difficulty}
             birthTime={this.state.birthTime} />
         </div>)
       : (

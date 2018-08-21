@@ -1,0 +1,15 @@
+.diff-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+button.difficulty {
+  display: block;
+  background: #000;
+  border: none;
+  margin: 1em auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color: white;
+  width: 100%;
+}

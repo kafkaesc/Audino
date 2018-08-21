@@ -7,7 +7,6 @@ class Sun extends React.Component {
     super(props);
 
     this.state = {
-      name: this.props.name,
       phase: this.props.phase,
     };
 
@@ -44,12 +43,13 @@ class Sun extends React.Component {
   render() {
     return (
       <div>
-        <h2>{this.state.name}</h2>
-        <p>{this.state.name} has been around for </p>
-        <Timer nextPhase={this.evolve} />
+        <h2>{this.props.name}</h2>
+        <p>{this.props.name} has been around for </p>
+        <Timer diff_speed={this.props.difficulty} nextPhase={this.evolve} />
         <p>
-          {this.state.name} is currently a {this.state.phase}, and {this.printNextPhase()}
+          {this.props.name} is currently a {this.state.phase}, and {this.printNextPhase()}
         </p>
+        <p>Difficulty is {this.props.difficulty}</p>
         <SunHandler />
       </div>
     );
